@@ -8,9 +8,8 @@ public:
                 v.push_back(intervals[i]);
             }
             else{
-                v.back()[1]=max(v.back()[1],intervals[i][1]);
-            }
-        }
+                v.back()[1]=max(v.back()[1],intervals[i][1]); }
+}
         return v;
 
     }
