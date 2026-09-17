@@ -8,8 +8,7 @@ public:
                 x=x+32;
             }
             else if(x<'a'||x>'z'){
-                x=' ';
-            }
+                x=' ';}
         }
         stringstream ss(paragraph);
         while(ss>>word){
@@ -22,8 +21,7 @@ public:
         for(auto k:m){
             if(k.second>mx){
                 mx=k.second;
-                ans=k.first;
-            }
+                ans=k.first;}
         }
         return ans;
     }
