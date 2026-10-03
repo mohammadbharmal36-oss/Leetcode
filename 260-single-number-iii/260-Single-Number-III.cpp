@@ -1,17 +1,21 @@
 class Solution {
 public:
     vector<int> singleNumber(vector<int>& nums) {
-        unordered_map<int,int> m;
+        long long a=0;
         for(auto l:nums){
-            m[l]++;
+            a=a^l;
         }
-        vector<int> v;
-        for(auto j:m){
-            if(j.second==1){
-                v.push_back(j.first);
+        long long b=a&(-a);
+        int x=0;
+        int y=0;
+        for(auto l:nums){
+            if(l&b){
+                x=x^l;
+            }
+            else{
+                y=y^l;
             }
         }
-        return v;
-
+        return {x,y};
     }
 };
