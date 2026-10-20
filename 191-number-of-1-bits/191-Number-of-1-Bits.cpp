@@ -1,12 +1,15 @@
 class Solution {
 public:
     int hammingWeight(int n) {
-        string p;
+        int c=0;
         while(n>0){
             int rem=n%2;
-            p.push_back(rem+'0');
+            if(rem==1){
+                c++;
+            }
             n=n/2;
         }
-        return count(p.begin(),p.end(),'1');
+        return c;
     }
+        
 };
