@@ -5,8 +5,9 @@ public:
         int c=0;
         int s=0;
         for(int i=0;i<gas.size();i++){
-            t+=gas[i]-cost[i];
-            c+=gas[i]-cost[i];
+            int d=gas[i]-cost[i];
+            t+=d;
+            c+=d;
             if(t<0){
                 s=i+1;
                 t=0;
