@@ -1,30 +1,30 @@
 class Solution {
 public:
-    void pa(int j,string &s,vector<vector<string>> &a,vector<string> &d){
-      if(j==s.size()){
-        a.push_back(d);
-        return;
-      }
-      for(int i=j;i<s.size();i++){
-        if(palin(s,j,i)){
-            d.push_back(s.substr(j,i-j+1));
-            pa(i+1,s,a,d);
-            d.pop_back();
-        }
-      }
-    }
-    bool palin(string &s,int st,int en){
-        while(st<en){
-            if(s[st++]!=s[en--]){
-                 return false;
+    bool is(int i,int j,string &s){
+        while(i<j){
+            if(s[i++]!=s[j--]){
+                return false;
             }
         }
         return true;
     }
+    void sol(int t,string &s,vector<string>&d,vector<vector<string>> &a ){
+        if(t==s.size()){
+            a.push_back(d);
+            return;
+        }
+        for(int k=t;k<s.size();k++){
+            if(is(t,k,s)){
+                d.push_back(s.substr(t,k-t+1));
+                sol(k+1,s,d,a);
+                d.pop_back();
+            }
+        }
+    }
     vector<vector<string>> partition(string s) {
         vector<vector<string>> a;
         vector<string> d;
-        pa(0,s,a,d);
+        sol(0,s,d,a);
         return a;
 
     }
